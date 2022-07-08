@@ -5,7 +5,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import {Menu} from "./Menu";
 import {Profile} from "./Screens/Profile";
 import {Stepscount} from "./Screens/Stepscount";
-import {Fitnesscourse} from "./Screens/Fitnesscourse";
+import {Fitnesscourse, CourseCreator} from "./Screens/Fitnesscourse";
 import {Health} from "./Screens/Health";
 const Stack = createStackNavigator();
 
@@ -19,6 +19,7 @@ export default function App() {
                 <Stack.Screen name={"Profile"} component={Profile}/>
                 <Stack.Screen name={"Stepscount"} component={Stepscount}/>
                 <Stack.Screen name={"Fitnesscourse"} component={Fitnesscourse}/>
+                <Stack.Screen name={"Create"} component={CourseCreator}/>
                 <Stack.Screen name={"Health"} component={Health}/>
             </Stack.Navigator>
         </NavigationContainer>
