@@ -1,4 +1,4 @@
-import {Button, FlatList, SafeAreaView, Text, TextInput, View} from "react-native";
+import {Button, FlatList, Image, SafeAreaView, Text, TextInput, View} from "react-native";
 import responderTouchHistoryStore from "react-native-web/dist/modules/useResponderEvents/ResponderTouchHistoryStore";
 import {fetch} from "react-native/Libraries/Network/fetch";
 import {useState} from "react";
@@ -26,6 +26,16 @@ export function CourseCreator(){
     const [data, setData] = useState();
     const [bodyPart, setBodyPart] = useState("");
 
+    let example = "1";
+    let exc = {
+        bodyPart:"",
+        name:"Here",
+        equipment:"",
+        gifUrl:"http://d205bpvrqc9yn1.cloudfront.net/0007.gif"
+    }
+    const [myExes, setMyExes] = useState(exc);
+
+
 
     const options = {
         method: 'GET',
@@ -40,29 +50,36 @@ export function CourseCreator(){
     const place = () => {
         fetch('https://exercisedb.p.rapidapi.com/exercises/bodypart/'+bodyPart.toLowerCase(), options)
             .then(response => response.json())
-            .then(response => console.log(response))
             .then(data => setData(JSON.stringify(data)))
             .catch(err => console.error(err));
     }
 
-    const Item = ({name}) => {
-        return(
-        <View>
-            <Text>{name}</Text>
-            <Button title={"Select"}/>
-        </View>
-        );
-    }
+
     
-    const renderItem = ({item}) => (
-      <Item title={item.name}/>
-    );
+
+
+    const pDa = () => {
+        let tig = JSON.parse(data);
+        example = tig[0].bodyPart;
+        console.log(data);
+        console.log(tig[0]);
+        console.log(tig[0].bodyPart);
+        exc.bodyPart = tig[0].bodyPart;
+        exc.name = tig[0].name;
+        exc.equipment = tig[0].equipment;
+        exc.gifUrl = tig[0].gifUrl;
+        setMyExes(exc);
+        console.log(exc.name)
+        console.log(exc.gifUrl);
+    }
+
 
     return(
         <SafeAreaView>
             <TextInput placeholder={"A Body Part"}  value={bodyPart} onChangeText={setBodyPart}/>
             <Button title={"show"} onPress={place}/>
-            <FlatList data={data} renderItem={renderItem}/>
+            <Button title={"dats"} onPress={pDa}/>
+            <Text>{myExes.name}</Text>
         </SafeAreaView>
     )
 }

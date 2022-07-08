@@ -1,12 +1,11 @@
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
-import {LogInRegister} from './LogInRegister';
+import {LogInRegister, Registration} from './LogInRegister';
 import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import {Menu} from "./Menu";
 import {Profile} from "./Screens/Profile";
 import {Stepscount} from "./Screens/Stepscount";
 import {Fitnesscourse, CourseCreator} from "./Screens/Fitnesscourse";
-import {Health} from "./Screens/Health";
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -20,7 +19,8 @@ export default function App() {
                 <Stack.Screen name={"Stepscount"} component={Stepscount}/>
                 <Stack.Screen name={"Fitnesscourse"} component={Fitnesscourse}/>
                 <Stack.Screen name={"Create"} component={CourseCreator}/>
-                <Stack.Screen name={"Health"} component={Health}/>
+
+                <Stack.Screen name={"Registration"} component={Registration}/>
             </Stack.Navigator>
         </NavigationContainer>
 

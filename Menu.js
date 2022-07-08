@@ -14,16 +14,13 @@ export function Menu(){
     const goToFitnesscourse = () => {
       navigation.navigate("Fitnesscourse")
     }
-    const goToHealth = () => {
-      navigation.navigate("Health")
-    }
+
 
     return(
         <SafeAreaView>
             <Button title={"Profile"} onPress={goToProfile}/>
             <Button title={"Stepscount"} onPress={goToStepscount}/>
             <Button title={"Fitnesscourse"} onPress={goToFitnesscourse}/>
-            <Button title={"Health"} onPress={goToHealth}/>
         </SafeAreaView>
     )
 }
