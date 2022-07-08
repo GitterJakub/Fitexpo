@@ -1,7 +1,10 @@
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Button, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import {useState} from "react";
 import {myAdmin} from "./api/api";
+import {useNavigation} from "@react-navigation/native";
 //import { initializeApp } from 'firebase/app';
+
+
 
 // Optionally import the services that you want to use
 //import {...} from "firebase/auth";
@@ -24,15 +27,20 @@ const firebaseConfig = {
 
 //initializeApp(firebaseConfig);
 
+export let user;
 
 export function LogInRegister() {
+    const navigation = useNavigation();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+
 
     const login = () => {
         if (username === myAdmin.username && password === myAdmin.password){
             console.log("success");
-
+            navigation.navigate("Menu");
+            user = myAdmin;
         }else {
             console.log("not");
             console.log(username+ "  " + myAdmin.username);
@@ -41,15 +49,15 @@ export function LogInRegister() {
     }
 
     return(
-        <View>
+        <SafeAreaView>
             <Text>Login</Text>
             <Text>Username: </Text>
-            <TextInput value={username} onChangeText={setUsername}></TextInput>
+            <TextInput value={username} onChangeText={setUsername}/>
             <Text>Password: </Text>
-            <TextInput value={password} onChangeText={setPassword}></TextInput>
-            <Button title={"Log in"} onPress={login} ></Button>
+            <TextInput value={password} onChangeText={setPassword}/>
+            <Button title={"Log in"} onPress={login} />
             <Text>OR</Text>
-            <Button title={"Register"}></Button>
-        </View>
+            <Button title={"Register"}/>
+        </SafeAreaView>
     )
 }
