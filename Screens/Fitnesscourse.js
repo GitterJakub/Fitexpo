@@ -25,6 +25,7 @@ export function CourseCreator(){
 
     const [data, setData] = useState();
     const [bodyPart, setBodyPart] = useState("");
+    const [id, setId] = useState(0);
 
     let example = "1";
     let exc = {
@@ -77,6 +78,7 @@ export function CourseCreator(){
     return(
         <SafeAreaView>
             <TextInput placeholder={"A Body Part"}  value={bodyPart} onChangeText={setBodyPart}/>
+            <TextInput placeholder={"ID"} onChangeText={setId} value={id}></TextInput>
             <Button title={"show"} onPress={place}/>
             <Button title={"dats"} onPress={pDa}/>
             <Text>{myExes.name}</Text>
