@@ -3,10 +3,10 @@ import {LogInRegister} from './LogInRegister';
 import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import {Menu} from "./Menu";
-import {Profile} from "./Profile";
-import {Stepscount} from "./Stepscount";
-import {Fitnesscourse} from "./Fitnesscourse";
-import {Health} from "./Health";
+import {Profile} from "./Screens/Profile";
+import {Stepscount} from "./Screens/Stepscount";
+import {Fitnesscourse} from "./Screens/Fitnesscourse";
+import {Health} from "./Screens/Health";
 const Stack = createStackNavigator();
 
 export default function App() {

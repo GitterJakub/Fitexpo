@@ -1,5 +1,5 @@
 import {SafeAreaView, Text} from "react-native";
-import {user} from "./LogInRegister";
+import {user} from "../LogInRegister";
 
 export function Profile(){
     return(
